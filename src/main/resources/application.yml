@@ -1,0 +1,58 @@
+
+
+server:
+  port: 8080
+spring:
+  application:
+    name: dn-wx-platform
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #    url:  jdbc:mysql://127.0.0.1:3306/cecdata_sensation?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    url:  jdbc:mysql://10.1.11.135:3306/cecdata_sensation?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: root
+    #    password: 123456
+    password: Pwd@dev123
+  session:
+    store-type: redis
+  redis:
+    host: localhost
+com:
+  dn:
+    authention:
+      name: Authorization
+      prefix: zhao
+      sceret: zhao
+      expire: 1000000000000000
+      mockUser: admin
+      sessionEnable: true
+    cors:
+      allowedOrigins: chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop,http://localhost:8088,http://localhost:8080,http://localhost:8081,http://localhost:8000,http://ztq01.frps.sf201.top,http://47.97.10.127:80,http://ztq.frps.sf201.top,http://23.106.133.35:80
+      allowedMethods: GET,POST,PUT,DELETE
+      allowedHeaders: content-type,authorization,Access-Control-Allow-Origin
+    except-urls: /api/hello,api/hello1\
+      ,/**/*.js,/**/*.css,/**/*.png,/swagger-resources/configuration/ui,/v2/api-docs,/swagger-resources,/swagger-resources/configuration/security\
+      ,/api/error,/api/wx,/wx/portal/**,/test/**,/api/wx/**,/api/validate/get-code,/api/sys/dict/**,/swagger-ui.html,/swagger-ui.html
+    validate-code:
+      expireTime: 60000
+      needValidateCodeUrls: /api/login.html
+      codeCount: 4
+      lineCount: 0
+      codeSequence: 1,2,3,4,5,6,7,8,9,0
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  mapper-locations: classpath:/mapper/**/*.xml
+logging:
+  level:
+    com.dn: debug
+wx:
+  mp:
+    configs:
+      - app-id: wx42b8bf514df86fef
+        secret: 4760dc564db91dd0b5b2d008a0fb2823
+        token: 10010
+        aes-key:
+        config-storage:
+          type: memory
