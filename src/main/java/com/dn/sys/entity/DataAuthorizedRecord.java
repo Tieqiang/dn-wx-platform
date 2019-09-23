@@ -37,8 +37,6 @@ public class DataAuthorizedRecord extends BaseDomain {
     @ApiModelProperty(value = "结束时间")
     private Long endDate;
 
-    @ApiModelProperty(value = "所属系统")
-    private String sysId;
 
 
 }

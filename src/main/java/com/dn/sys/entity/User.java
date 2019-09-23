@@ -72,8 +72,6 @@ public class User extends BaseDomain implements UserDetails {
     @ApiModelProperty(value = "所属单位")
     private String orgId;
 
-    @ApiModelProperty(value = "所属系统")
-    private String sysId;
 
     @ApiModelProperty(value = "邮箱")
     private String email;

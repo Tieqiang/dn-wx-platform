@@ -31,8 +31,5 @@ public class ApiPermission extends BaseDomain {
     @ApiModelProperty(value = "权限编码")
     private String permissionCode;
 
-    @ApiModelProperty(value = "所属系统")
-    private String sysId;
-
 
 }

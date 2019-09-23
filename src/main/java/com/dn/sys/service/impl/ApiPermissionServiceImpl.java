@@ -40,11 +40,9 @@ public class ApiPermissionServiceImpl extends ServiceImpl<ApiPermissionMapper, A
     }
 
     @Override
-    public IPage<ApiPermission> getPermissions(Page page, String sysId) {
+    public IPage<ApiPermission> getPermissions(Page page) {
         QueryWrapper queryWrapper = new QueryWrapper();
-        if(sysId != null && !"".equals(sysId)){
-            queryWrapper.eq("sys_id",sysId);
-        }
+
         return this.baseMapper.selectPage(page,queryWrapper);
     }
 

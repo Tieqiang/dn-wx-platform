@@ -53,9 +53,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     private IRoleVsUserService iRoleVsUserService;
 
     @Override
-    public IPage<EditUserInfoVo> getUserPage(Page page, String sysId, String realName, String nikeName, String orgId) {
+    public IPage<EditUserInfoVo> getUserPage(Page page, String realName, String nikeName, String orgId) {
 
-        IPage<EditUserInfoVo> userIPage = this.baseMapper.getUserPage(page, sysId, realName, nikeName, orgId);
+        IPage<EditUserInfoVo> userIPage = this.baseMapper.getUserPage(page, realName, nikeName, orgId);
         return userIPage;
     }
 
@@ -141,8 +141,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
 
     @Override
-    public List<User> getAllUsers(String sysId, String queryParms) {
-        return this.baseMapper.getAllUsers(sysId,queryParms);
+    public List<User> getAllUsers( String queryParms) {
+        return this.baseMapper.getAllUsers(queryParms);
     }
 
     /**

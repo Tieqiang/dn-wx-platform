@@ -29,5 +29,8 @@ public class BaseDomain implements Serializable {
     @TableLogic(value = "0", delval = "1")
     private Integer delFlag;
 
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private String lastUpdateBy ;
+
 
 }

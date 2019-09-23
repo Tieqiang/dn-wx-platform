@@ -37,8 +37,6 @@ public class Menu extends BaseDomain {
     @ApiModelProperty(value = "父级菜案")
     private String parentMenuId;
 
-    @ApiModelProperty(value = "所属系统")
-    private String sysId;
 
 
 }

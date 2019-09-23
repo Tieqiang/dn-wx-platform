@@ -34,7 +34,5 @@ public class Org extends BaseDomain {
     @ApiModelProperty(value = "机构编码")
     private String orgCode;
 
-    @ApiModelProperty(value = "所属系统")
-    private String sysId;
 
 }

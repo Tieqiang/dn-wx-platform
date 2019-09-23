@@ -50,11 +50,11 @@ public class CodeGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://10.1.11.135:3306/dn_sensation?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=GMT");
+        dsc.setUrl("jdbc:mysql://127.0.0.1:3306/wx_db?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=GMT");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("Pwd@dev123");
+        dsc.setPassword("123456");
         mpg.setDataSource(dsc);
 
         // 包配置
@@ -121,7 +121,7 @@ public class CodeGenerator {
         strategy.setRestControllerStyle(true);
         strategy.setSuperControllerClass("com.dn.common.controller.BaseController");
         strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
-        strategy.setSuperEntityColumns("id","remark","create_date","last_update_date","del_flag","creator");
+        strategy.setSuperEntityColumns("id","remark","create_date","last_update_date","del_flag","creator","last_update_by");
 
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");

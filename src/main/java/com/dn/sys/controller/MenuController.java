@@ -29,7 +29,7 @@ public class MenuController extends BaseController {
 
     @ApiOperation(value="查询所有的菜单和下面的权限",httpMethod = "GET",notes = "查询所有的菜单和下面的权限")
     @GetMapping
-    public List<MenuPermissionVo> getMenusWithPermission(String sysId){
+    public List<MenuPermissionVo> getMenusWithPermission(){
 
         return iMenuService.getMenuPermission();
 
@@ -37,13 +37,12 @@ public class MenuController extends BaseController {
 
     /**
      * 根据系统id 查询所有的菜单信息
-     * @param sysId
      * @return
      */
     @ApiOperation(value="查询所有的菜单列表",httpMethod = "GET",notes = "查询所有的菜单列表,前台展示为树形")
     @GetMapping("/get-menus")
-    public List<Menu> getMenus(String sysId){
-        return iMenuService.getMenus(sysId);
+    public List<Menu> getMenus(){
+        return iMenuService.getMenus();
     }
 
     /**

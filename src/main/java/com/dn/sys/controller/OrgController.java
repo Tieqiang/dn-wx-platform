@@ -33,12 +33,12 @@ public class OrgController extends BaseController {
 
     @ApiOperation(value = "获取部门列表", httpMethod = "GET", notes = "获取部门列表")
     @GetMapping
-    public List<Org> getOrg(@RequestParam(value = "sysId", required = true) String sysId, String orgName) {
+    public List<Org> getOrgByName(String orgName) {
         QueryWrapper<Org> queryWrapper = new QueryWrapper<Org>();
         if (!StringUtils.isNotBlank(orgName)) {
             queryWrapper.like("org_name", orgName);
         }
-        queryWrapper.eq("sys_id", sysId);
+
         return iOrgService.list(queryWrapper);
     }
 

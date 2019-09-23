@@ -19,7 +19,7 @@ public interface IApiPermissionService extends IService<ApiPermission> {
 
     void saveOrUpdatePermissions(List<ApiPermission> resourceList);
 
-    public IPage<ApiPermission> getPermissions(Page page, String sysId);
+    public IPage<ApiPermission> getPermissions(Page page);
 
     public void saveOrUpdatePermission(ApiPermission apiPermission);
 

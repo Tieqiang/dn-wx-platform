@@ -31,8 +31,6 @@ public class DataLevel extends BaseDomain {
     @ApiModelProperty(value = "数据级别")
     private Integer dataLevel;
 
-    @ApiModelProperty(value = "所属系统")
-    private String sysId;
 
 
 }

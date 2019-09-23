@@ -37,12 +37,12 @@ public interface UserMapper extends BaseMapper<User> {
      */
     UserInfo getCurrentUserInfo(User user);
 
-    IPage<EditUserInfoVo> getUserPage(Page page, @Param("sysId") String sysId, @Param("realName") String realName, @Param("nikeName") String nikeName, @Param("orgId") String orgId);
+    IPage<EditUserInfoVo> getUserPage(Page page,  @Param("realName") String realName, @Param("nikeName") String nikeName, @Param("orgId") String orgId);
 
 
     EditUserInfoVo getUserById(@Param("id") String id);
 
-    public List<User> getAllUsers(@Param("sysId") String sysId, @Param("queryParms") String queryParms);
+    public List<User> getAllUsers( @Param("queryParms") String queryParms);
 
 
 }

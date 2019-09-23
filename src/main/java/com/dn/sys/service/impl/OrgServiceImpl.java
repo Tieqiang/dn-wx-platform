@@ -34,7 +34,7 @@ public class OrgServiceImpl extends ServiceImpl<OrgMapper, Org> implements IOrgS
             throw new DcException("未找到要删除的机构信息");
         }
 
-        IPage<EditUserInfoVo> userPage = userMapper.getUserPage(new Page(0, 100), org.getSysId(), "", "", org.getId());
+        IPage<EditUserInfoVo> userPage = userMapper.getUserPage(new Page(0, 100), "", "", org.getId());
         if (userPage.getRecords().size() > 0) {
             throw new DcException("该机构下存在有用户信息，请先处理用户信息，然后在删除机构！");
         }

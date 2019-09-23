@@ -26,11 +26,9 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements IM
         return this.baseMapper.getMenuPermission();
     }
 
-    public List<Menu> getMenus(String sysId){
+    public List<Menu> getMenus(){
         QueryWrapper queryWrapper = new QueryWrapper();
-        if(sysId != null && !"".equals(sysId)){
-            queryWrapper.eq("sys_id",sysId);
-        }
+
         return this.baseMapper.selectList(queryWrapper);
     }
 

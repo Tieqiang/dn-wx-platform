@@ -19,7 +19,7 @@ public interface IMenuService extends IService<Menu> {
 
     public List<MenuPermissionVo> getMenuPermission();
 
-    public List<Menu> getMenus(String sysId);
+    public List<Menu> getMenus();
 
     public void saveOrUpdateMenu(Menu menu);
 

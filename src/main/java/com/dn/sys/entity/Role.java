@@ -34,8 +34,6 @@ public class Role extends BaseDomain {
     @ApiModelProperty(value = "角色默认首页")
     private String roleIndexMenuId;
 
-    @ApiModelProperty(value = "所属系统")
-    private String sysId;
 
 
 }

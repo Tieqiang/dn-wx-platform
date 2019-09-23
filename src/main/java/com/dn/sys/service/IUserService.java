@@ -20,7 +20,7 @@ import java.util.List;
  */
 public interface IUserService extends IService<User> {
 
-    public IPage<EditUserInfoVo> getUserPage(Page page, String sysId, String realName, String nikeName, String orgId);
+    public IPage<EditUserInfoVo> getUserPage(Page page, String realName, String nikeName, String orgId);
 
 
     UserInfo getCurrentUserInfo(User user);
@@ -33,7 +33,7 @@ public interface IUserService extends IService<User> {
 
     public void saveOrUpdateUser(EditUserInfoVo editUserInfoVo);
 
-    public List<User> getAllUsers(String sysId, String queryParms);
+    public List<User> getAllUsers( String queryParms);
 
     /**
      * 获取关系人为当前用户的用户

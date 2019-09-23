@@ -85,17 +85,16 @@ public class UserController extends BaseController {
     /**
      * 根据所属系统，查询系统下的所有用户，进行分页
      *
-     * @param sysId
      * @return
      */
     @ApiOperation(value = "获取用户列表", httpMethod = "GET", notes = "根据条件查询用户列表")
     @GetMapping
-    public IPage<EditUserInfoVo> getUsers(Long page, Long pageSize, String sysId, String realName, String nikeName, String orgId) {
+    public IPage<EditUserInfoVo> getUsers(Long page, Long pageSize, String realName, String nikeName, String orgId) {
         if (page == null) page = 1L;
         if (pageSize == null) pageSize = 10L;
 
         Page<EditUserInfoVo> pageEntity = new Page<EditUserInfoVo>(page, pageSize);
-        IPage<EditUserInfoVo> userIPage = iUserService.getUserPage(pageEntity, sysId, realName, nikeName, orgId);
+        IPage<EditUserInfoVo> userIPage = iUserService.getUserPage(pageEntity, realName, nikeName, orgId);
         return userIPage;
     }
 
@@ -124,8 +123,8 @@ public class UserController extends BaseController {
      */
     @ApiOperation(value = "查询所有用户列表", httpMethod = "GET", notes = "查询所有用户列表，不分页，给关系人用")
     @GetMapping("/get-all-users")
-    public List<User> getAllUsers(String sysId, String queryParms) {
-        return iUserService.getAllUsers(sysId, queryParms);
+    public List<User> getAllUsers( String queryParms) {
+        return iUserService.getAllUsers( queryParms);
     }
 
     @ApiOperation(value = "删除用户", httpMethod = "DELETE", notes = "删除用户")

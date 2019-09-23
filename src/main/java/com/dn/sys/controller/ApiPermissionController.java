@@ -32,12 +32,12 @@ public class ApiPermissionController extends BaseController {
      */
     @ApiOperation(value="查询所有的菜单和下面的权限",httpMethod = "GET",notes = "查询所有的菜单和下面的权限")
     @GetMapping("/get-permissions")
-    public IPage<ApiPermission> getPermissions(Long page, Long pageSize, String sysId){
+    public IPage<ApiPermission> getPermissions(Long page, Long pageSize){
         if(page==null) page=1L;
         if (pageSize==null) pageSize=10L;
 
         Page<EditUserInfoVo> pageEntity = new Page<EditUserInfoVo>(page, pageSize);
-        IPage<ApiPermission> apiPermissions = iApiPermissionService.getPermissions(pageEntity,sysId);
+        IPage<ApiPermission> apiPermissions = iApiPermissionService.getPermissions(pageEntity);
         return apiPermissions;
     }
 
