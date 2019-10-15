@@ -15,7 +15,7 @@ import com.dn.common.controller.BaseController;
  * @since 2019-09-23
  */
 @RestController
-@RequestMapping("/wx/follow-event")
+@RequestMapping("/api/wx/follow-event")
 public class FollowEventController extends BaseController {
 
 }

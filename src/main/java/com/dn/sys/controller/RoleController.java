@@ -51,7 +51,6 @@ public class RoleController extends BaseController {
         }
         QueryWrapper<Role> queryWrapper = new QueryWrapper<Role>();
         queryWrapper.like("role_name", roleName);
-        queryWrapper.eq("sys_id", sysId);
         return iRoleService.page(pageEntity, queryWrapper);
     }
 
@@ -70,7 +69,6 @@ public class RoleController extends BaseController {
         }
         QueryWrapper<Role> queryWrapper = new QueryWrapper<Role>();
         queryWrapper.like("role_name", roleName);
-        queryWrapper.eq("sys_id", sysId);
         return iRoleService.list(queryWrapper);
     }
 

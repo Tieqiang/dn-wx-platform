@@ -38,5 +38,4 @@ public class Menu extends BaseDomain {
     private String parentMenuId;
 
 
-
 }
