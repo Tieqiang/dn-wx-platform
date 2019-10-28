@@ -25,10 +25,11 @@ import com.dn.common.controller.BaseController;
 public class FollowEventController extends BaseController {
 
     @Autowired
-    private IFollowEventService followEventService ;
+    private IFollowEventService followEventService;
 
     /**
      * 获取所有的随访类型
+     *
      * @param pageSize
      * @param current
      * @param eventType
@@ -36,38 +37,40 @@ public class FollowEventController extends BaseController {
      * @return
      */
     @GetMapping
-    public IPage<FollowEvent> getFollowEventPages(@RequestParam(required = false,defaultValue = "20") long pageSize,
-                                                  @RequestParam(required = false,defaultValue = "1") long current,
-                                                  @RequestParam(required = false)String eventType,
-                                                  @RequestParam(required = false)String eventName){
+    public IPage<FollowEvent> getFollowEventPages(@RequestParam(required = false, defaultValue = "20") long pageSize,
+                                                  @RequestParam(required = false, defaultValue = "1") long current,
+                                                  @RequestParam(required = false) String eventType,
+                                                  @RequestParam(required = false) String eventName) {
         QueryWrapper<FollowEvent> queryWrapper = new QueryWrapper<>();
-        if(StringUtils.isNotBlank(eventName) && StringUtils.isNotEmpty(eventName)){
-            queryWrapper.like("event_name",eventName);
+        if (StringUtils.isNotBlank(eventName) && StringUtils.isNotEmpty(eventName)) {
+            queryWrapper.like("event_name", eventName);
         }
-        if(StringUtils.isNotEmpty(eventType)&&StringUtils.isNotBlank(eventType)){
-            queryWrapper.eq("event_type",eventType);
+        if (StringUtils.isNotEmpty(eventType) && StringUtils.isNotBlank(eventType)) {
+            queryWrapper.eq("event_type", eventType);
         }
-        return followEventService.page(new Page<>(current,pageSize),queryWrapper);
+        return followEventService.page(new Page<>(current, pageSize), queryWrapper);
     }
 
 
     /**
      * 增加或者修改
+     *
      * @param followEvent
      * @return
      */
     @PostMapping
-    public boolean saveOrUpdateFollowEvent(@RequestBody FollowEvent followEvent){
+    public boolean saveOrUpdateFollowEvent(@RequestBody FollowEvent followEvent) {
         return followEventService.saveOrUpdate(followEvent);
     }
 
     /**
      * 删除
+     *
      * @param id
      * @return
      */
     @DeleteMapping
-    public boolean deleteFollowEvent(String id){
-        return followEventService.removeById(id) ;
+    public boolean deleteFollowEvent(String id) {
+        return followEventService.removeById(id);
     }
 }
